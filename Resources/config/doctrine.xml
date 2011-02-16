@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://www.symfony-project.org/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.symfony-project.org/schema/dic/services http://www.symfony-project.org/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="windows.doctrine.cache.class">Bundle\WindowsBundle\Doctrine\WinCacheAdaptor</parameter>
+
+        <!-- Injections -->
+        <parameter key="doctrine.orm.cache.wincache_class">%windows.doctrine.cache.class%</parameter>
+    </parameters>
+
+    <services>
+
+        <service id="windows_doctrine_cache" class="%windows.doctrine.cache.class%" shared="true">
+        </service>
+
+    </services>
+</container>
